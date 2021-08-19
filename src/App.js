@@ -18,7 +18,7 @@ function App() {
 
   const handleForgotModalClose = () => {
     setForgotModal(false);
-  }
+  } 
   return (
     <div className="App">
       <ChakraProvider>
