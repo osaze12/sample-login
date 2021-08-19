@@ -1,38 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+:root{
+  --blue: #06f;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-family: 'Varela Round', sans-serif;
+}
+
+.login{
+  display: grid;
+  grid-auto-flow: column;
+  width: 100%;
+  height: 100vh;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.login__left{
+  background: var(--blue);
+  position: relative;
+}
+
+.login__left .left-desc{
+  margin: 70px;
+  max-width: 300px;
+  
+}
+
+.login__left .right-angle{
+  position: absolute;
+  top: 160px;
+}
+
+.login__left .logo{
+  position: absolute;
+  bottom: 0px;
+  padding: 70px;
+}
+
+.login__left .left-desc h1{
+  font-size: 2.5em;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.login__left .left-desc p{
+  font-size: .8em;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.login__right{
+  position: relative;
+  height: 100vh;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.login__right .google-sign-in{
+  background: #d3d3d354;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login__right-inner{
+  padding: 70px;
+}
+
+.login__right-inner .mobile-logo{
+  display: none;
+  margin-bottom: 40px;
+}
+
+.login__right-inner h2{
+  font-size: 2em;
+  margin-bottom: 15px;
+}
+
+.login__right-inner h2 .brand{
+  color: var(--blue);
+}
+
+.login__right-inner p {
+  font-size: .8em;
+  max-width: 300px;
+  color: gray;
+  margin-bottom: 30px;
+}
+
+.login form{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.login form .error{
+  font-size: .7em;
+  color: #ff5959;
+  margin-top: 10px;
+}
+
+.login .group{
+  display: flex;
+  flex-direction: column;
+}
+
+.login .group label{
+  color: gray;
+  font-size: .8em;
+}
+
+.login .buttons{
+  display: flex;
+  justify-content: space-between;
+}
+
+.goal-completion{
+  color: #5b5b5b;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #293c2478;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  display: grid;
+  z-index: 20;
+}
+
+.goal-completion__container{
+  display: flex;
+  justify-content: center;
+}
+
+.goal-completion__content{
+  background: white;
+  border-radius: 5px;
+  padding: 10px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.goal-completion__content > svg{
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+.goal-completion__content .main{
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 400px;
+  gap: 10px;
+}
+
+.goal-completion__content .main h1{
+  font-size: 1.5em;
+  max-width: 400px;
+}
+.dashboard{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+}
+
+.dashboard h1{
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+.dashboard p{
+  font-size: .8em;
+}
+
+.dashboard p span{
+  font-size: 1.5em;
+}
+
+@media screen and (max-width: 768px){
+  .login__right-inner .mobile-logo{
+    display: block;
   }
-  to {
-    transform: rotate(360deg);
+
+  .login{
+    display: block;
+  }
+
+  .login__left{
+    display: none;
+  }
+
+  .login__right{
+    grid-template-rows: 800px auto;
+  }
+  
+}
+@media screen and (max-width: 600px){
+  .login{
+    display: block;
+  }
+
+  .login__left{
+    display: none;
+  }
+
+  .login__right{
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .login__right-inner{
+    padding: 30px;
+  }
+
+  .login__right-inner h2 {
+    font-size: 1.5em;
+  }
+  
+  .goal-completion__content .main {
+    width: 100%;
   }
 }
